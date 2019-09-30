@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92e0cf3f-262f-4bf1-9fe2-9b98a1fe72a5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/function/getCharactere.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/function/boucle-post.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/function/boucle-post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/getCharactere.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ListsCharacter/ListsCharacter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListsCharacter/ListsCharacter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/function/getCharactere.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/getCharactere.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/function/getCharactere.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/getCharactere.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +51,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569831133094</updated>
-      <workItem from="1569831134232" duration="6354000" />
+      <workItem from="1569831134232" duration="10003000" />
     </task>
     <servers />
   </component>
