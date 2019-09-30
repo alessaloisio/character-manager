@@ -1,5 +1,4 @@
-
-const axios = require('axios');
+import axios, { AxiosResponse } from "axios";
 
 const getCharactere = async () => {
 
@@ -14,5 +13,17 @@ const getCharactere = async () => {
             .finally(function () {
             console.log("WOOO");
             });
+  await axios
+    .get("https://character-database.becode.xyz/characters/characters")
+    .then((response: AxiosResponse) => {
+      console.log(response);
+      return response;
+    })
+    .catch(error => {
+      console.log(error);
+    })
+    .finally(() => {
+      console.log("WOOO");
+    });
 };
 export default getCharactere;
