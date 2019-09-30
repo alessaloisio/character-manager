@@ -1,17 +1,14 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 
 const getCharactere = async () => {
-  await axios
-    .get("https://character-database.becode.xyz/characters/characters")
-    .then((response: AxiosResponse) => {
-      console.log(response);
-      return response;
-    })
-    .catch(error => {
-      console.log(error);
-    })
-    .finally(() => {
-      console.log("WOOO");
-    });
+  try {
+    const res = await axios.get(
+      `https://character-database.becode.xyz/characters`
+    );
+
+    return res.data;
+  } catch (e) {
+    return null;
+  }
 };
 export default getCharactere;
