@@ -1,3 +1,7 @@
 .listsCharacter {
   padding: 25px;
 }
+
+.listsCharacter .cardMedia {
+  padding-top: 56.25%;
+}
