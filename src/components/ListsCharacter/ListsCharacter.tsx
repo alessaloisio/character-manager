@@ -11,6 +11,8 @@ import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
+import FloatButton from "../../components/FloatButton/FloatButton";
+
 import "./ListsCharacter.css";
 
 import ICharactere from "../../interfaces/ICharactere";
@@ -35,7 +37,6 @@ const ListsCharacter = () => {
 
   return (
     <Container className="listsCharacter" maxWidth="md">
-      {/* End hero unit */}
       <Grid container spacing={4}>
         {Characteres.map((charactere: ICharactere) => (
           <Grid item key={charactere.id} xs={12} sm={6} md={4}>
@@ -57,14 +58,13 @@ const ListsCharacter = () => {
                 <Button size="small" color="primary">
                   View
                 </Button>
-                <Button size="small" color="primary">
-                  Edit
-                </Button>
               </CardActions>
             </Card>
           </Grid>
         ))}
       </Grid>
+
+      <FloatButton />
     </Container>
   );
 };
