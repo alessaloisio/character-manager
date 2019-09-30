@@ -1,8 +1,5 @@
-import getCharactere from './getCharactere';
-test('Charactere', () =>{
-    console.log(getCharactere());
+import getCharactere from "./getCharactere";
+
+test("Charactere", async () => {
+  console.log(await getCharactere());
 });
-
-
-
-
