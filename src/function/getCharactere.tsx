@@ -1,19 +1,19 @@
 
-import axios from "axios";
+const axios = require('axios');
 
+const getCharactere = async () => {
 
-function boucle_post() {
-        axios.get('https://character-database.becode.xyz/description')
+    await axios.get('https://character-database.becode.xyz/characters/characters/:id')
             .then(function (response) {
-                // handle success
                 console.log(response);
+                return (response);
             })
             .catch(function (error) {
-                // handle error
                 console.log(error);
             })
             .finally(function () {
             console.log("WOOO");
             })
-}
- console.log(boucle_post());
+
+};
+export default getCharactere;
