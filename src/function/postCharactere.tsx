@@ -8,7 +8,6 @@ const postCharactere = async (data: ICharactere) => {
       `https://character-database.becode.xyz/characters/`,
       data
     );
-
     return res.data;
   } catch (e) {
     return null;

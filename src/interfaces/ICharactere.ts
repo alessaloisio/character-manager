@@ -1,5 +1,5 @@
 interface ICharactere {
-  id: string;
+  id?: string;
   description: string;
   shortDescription: string;
   name: string;

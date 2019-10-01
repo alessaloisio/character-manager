@@ -22,7 +22,7 @@ const ViewModal = (props: { open: boolean; data: ICharactere; close: any }) => {
   const charactere = props.data;
 
   const handleDelete = async () => {
-    await deleteOneCharactere(charactere.id);
+    await deleteOneCharactere(charactere.id!);
     // CLOSE the modal
     props.close();
   };

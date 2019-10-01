@@ -72,7 +72,7 @@ const ListsCharacter = () => {
               <CardActions>
                 <Button
                   onClick={() => {
-                    handleViewOpen(charactere.id);
+                    handleViewOpen(charactere.id!);
                   }}
                   size="small"
                   color="primary"

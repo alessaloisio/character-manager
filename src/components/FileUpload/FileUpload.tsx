@@ -7,7 +7,10 @@ const FileUpload = (props: { onchange: any }) => {
     reader.readAsDataURL(img![0]);
     reader.onload = evt => {
       // SEND TO AddModal
-      props.onchange(evt.target!.result);
+      let image = evt.target!;
+      if (image && typeof image.result === "string") {
+        props.onchange(image.result.split(",")[1]);
+      }
     };
   };
 

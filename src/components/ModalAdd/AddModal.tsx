@@ -10,12 +10,13 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 
 // COMPONENTS
 import FileUpload from "../FileUpload/FileUpload";
+import postCharactere from "../../function/postCharactere";
 
 const AppModal = (props: { open: boolean; close: any }) => {
   const [inputName, setInputName] = useState("");
   const [inputShortDescription, setInputShortDescription] = useState("");
   const [inputDescription, setInputDescription] = useState("");
-  const [inputImage, setInputImage] = useState(null);
+  const [inputImage, setInputImage] = useState("");
 
   const handleChange = (e: any) => {
     switch (e.target.getAttribute("id")) {
@@ -31,12 +32,22 @@ const AppModal = (props: { open: boolean; close: any }) => {
     }
   };
 
-  const submit = () => {
-    console.log("submit");
-    console.log(inputName);
-    console.log(inputShortDescription);
-    console.log(inputDescription);
-    console.log(inputImage);
+  const submit = async () => {
+    await postCharactere({
+      name: inputName,
+      shortDescription: inputShortDescription,
+      description: inputDescription,
+      image: inputImage
+    });
+
+    // RESET ALL INPUT
+    setInputName("");
+    setInputShortDescription("");
+    setInputDescription("");
+    setInputImage("");
+
+    // CLOSE MODAL
+    props.close();
   };
 
   return (
@@ -71,7 +82,9 @@ const AppModal = (props: { open: boolean; close: any }) => {
           margin="dense"
           id="InputDescription"
           label="Description"
+          type="text"
           fullWidth
+          multiline
         />
       </DialogContent>
       <DialogActions>
