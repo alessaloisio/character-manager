@@ -21,6 +21,7 @@ import ViewModal from "../ViewModal/ViewModal";
 import ICharactere from "../../interfaces/ICharactere";
 import getCharactere from "../../function/getCharactere";
 import getOneCharactere from "../../function/getOneCharactere";
+import cardImage from "../../function/cardImage";
 
 import "./ListsCharacter.css";
 
@@ -47,11 +48,9 @@ const ListsCharacter = () => {
     // SHOW MODAL
     setViewModal(true);
   };
-
-  // Manage balise img concernant une carte
-  const cardImage = (image: string) => {
-    if (typeof image !== "undefined") return `data:image/gif;base64,${image}`;
-    return "https://source.unsplash.com/random";
+  const handleViewClose = () => {
+    // SHOW MODAL
+    setViewModal(false);
   };
 
   return (
@@ -87,9 +86,11 @@ const ListsCharacter = () => {
           </Grid>
         ))}
       </Grid>
-
-      <ViewModal open={viewModal} data={charactere}></ViewModal>
-
+      <ViewModal
+        open={viewModal}
+        close={handleViewClose}
+        data={charactere}
+      ></ViewModal>
       <FloatButton />
     </Container>
   );
