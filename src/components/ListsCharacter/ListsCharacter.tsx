@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+// MATERIAL-UI
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 
@@ -13,14 +14,23 @@ import Button from "@material-ui/core/Button";
 
 import FloatButton from "../../components/FloatButton/FloatButton";
 
-import "./ListsCharacter.css";
+// COMPONENTS
+import ViewModal from "../ViewModal/ViewModal";
 
+// ADDONS
 import ICharactere from "../../interfaces/ICharactere";
 import getCharactere from "../../function/getCharactere";
+import getOneCharactere from "../../function/getOneCharactere";
+
+import "./ListsCharacter.css";
 
 const ListsCharacter = () => {
   const [Characteres, setCharacteres] = useState([]);
 
+  // VIEW
+  const [viewModal, setViewModal] = useState(false);
+
+  // Récupère les infos une fois le composent charger
   useEffect(() => {
     const fetchData = async () => {
       setCharacteres(await getCharactere());
@@ -29,9 +39,17 @@ const ListsCharacter = () => {
     fetchData();
   });
 
+  // View MODAL
+  const handleViewOpen = (id: string) => {
+    // REQUEST
+    // getOneCharactere
+    console.log(id);
+    setViewModal(true);
+  };
+
+  // Manage balise img concernant une carte
   const cardImage = (image: string) => {
     if (typeof image !== "undefined") return `data:image/gif;base64,${image}`;
-
     return "https://source.unsplash.com/random";
   };
 
@@ -41,7 +59,6 @@ const ListsCharacter = () => {
         {Characteres.map((charactere: ICharactere) => (
           <Grid item key={charactere.id} xs={12} sm={6} md={4}>
             <Card>
-              {}
               <CardMedia
                 className="cardMedia"
                 image={cardImage(charactere.image)}
@@ -55,7 +72,13 @@ const ListsCharacter = () => {
                 <Typography>{charactere.shortDescription}</Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" color="primary">
+                <Button
+                  onClick={() => {
+                    handleViewOpen(charactere.id);
+                  }}
+                  size="small"
+                  color="primary"
+                >
                   View
                 </Button>
               </CardActions>
@@ -63,6 +86,8 @@ const ListsCharacter = () => {
           </Grid>
         ))}
       </Grid>
+
+      <ViewModal open={viewModal}></ViewModal>
 
       <FloatButton />
     </Container>
