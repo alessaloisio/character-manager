@@ -58,6 +58,9 @@ export default function FormDialog() {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">
+                        test
+                    </Button>
+                    <Button onClick={handleClose} color="primary">
                         Cancel
                     </Button>
                     <Button onClick={handleClose} color="primary">
