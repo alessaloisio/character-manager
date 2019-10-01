@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function FloatingActionButtonZoom() {
+export default function FloatingActionButtonZoom(props: { onClick: any }) {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -26,13 +26,18 @@ export default function FloatingActionButtonZoom() {
       <Zoom
         key="primary"
         in={true}
-      timeout={transitionDuration} 
+        timeout={transitionDuration}
         style={{
           transitionDelay: `${transitionDuration.exit}ms`
         }}
         unmountOnExit
       >
-        <Fab aria-label="Add" className={classes.fab} color="primary">
+        <Fab
+          onClick={props.onClick}
+          aria-label="Add"
+          className={classes.fab}
+          color="primary"
+        >
           <AddIcon />
         </Fab>
       </Zoom>

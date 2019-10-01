@@ -12,10 +12,8 @@ import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
-import FloatButton from "../../components/FloatButton/FloatButton";
-
 // COMPONENTS
-import ViewModal from "../ViewModal/ViewModal";
+import ViewModal from "../ModalView/ViewModal";
 
 // ADDONS
 import ICharactere from "../../interfaces/ICharactere";
@@ -91,7 +89,6 @@ const ListsCharacter = () => {
         close={handleViewClose}
         data={charactere}
       ></ViewModal>
-      <FloatButton />
     </Container>
   );
 };
