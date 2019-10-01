@@ -22,7 +22,9 @@ const ViewModal = (props: { open: boolean; data: ICharactere; close: any }) => {
   const charactere = props.data;
 
   const handleDelete = async () => {
-    console.log("request delete");
+    await deleteOneCharactere(charactere.id);
+    // CLOSE the modal
+    props.close();
   };
 
   const dialog = () => (
@@ -33,9 +35,13 @@ const ViewModal = (props: { open: boolean; data: ICharactere; close: any }) => {
         src="img"
         title={charactere.name}
       />
-      <DialogTitle id="form-dialog-title">{charactere.name}</DialogTitle>
+      <DialogTitle id="form-dialog-title">
+        {charactere.name || "undefined"}
+      </DialogTitle>
       <DialogContent>
-        <DialogContentText>{charactere.description}</DialogContentText>
+        <DialogContentText>
+          {charactere.description || "undefined"}
+        </DialogContentText>
       </DialogContent>
       <DialogActions>
         <Button color="primary">Edit</Button>
