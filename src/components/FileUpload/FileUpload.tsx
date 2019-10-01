@@ -1,7 +1,16 @@
 import React from "react";
 import { DropzoneArea } from "material-ui-dropzone";
 
-const DropzoneAreaExample = (props: { onchange: any }) => {
+const FileUpload = (props: { onchange: any }) => {
+  const convertisseur = (img: File[]) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(img![0]);
+    reader.onload = evt => {
+      // SEND TO AddModal
+      props.onchange(evt.target!.result);
+    };
+  };
+
   return (
     <DropzoneArea
       filesLimit={1}
@@ -9,9 +18,9 @@ const DropzoneAreaExample = (props: { onchange: any }) => {
       showPreviews={true}
       acceptedFiles={["image/jpeg", "image/png", "image/bmp"]}
       showPreviewsInDropzone={false}
-      onChange={props.onchange}
+      onChange={convertisseur}
     ></DropzoneArea>
   );
 };
 
-export default DropzoneAreaExample;
+export default FileUpload;

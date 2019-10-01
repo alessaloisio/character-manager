@@ -9,7 +9,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
 // COMPONENTS
-import Dragdrop from "../DragDrop/dragdrop";
+import FileUpload from "../FileUpload/FileUpload";
 
 const AppModal = (props: { open: boolean; close: any }) => {
   const [inputName, setInputName] = useState("");
@@ -36,15 +36,7 @@ const AppModal = (props: { open: boolean; close: any }) => {
     console.log(inputName);
     console.log(inputShortDescription);
     console.log(inputDescription);
-    // console.log(inputImage![0]);
-
-    //blob
-    //     arrayBuffer: ƒ arrayBuffer()
-    //     size: (...)
-    // slice: ƒ slice()
-    //     stream: ƒ stream()
-    //     text: ƒ text()
-    //     type: (...)
+    console.log(inputImage);
   };
 
   return (
@@ -55,7 +47,7 @@ const AppModal = (props: { open: boolean; close: any }) => {
     >
       <DialogTitle id="form-dialog-title">Ajouté votre héro</DialogTitle>
       <DialogContent>
-        <Dragdrop onchange={setInputImage} />
+        <FileUpload onchange={setInputImage} />
         <TextField
           value={inputName}
           onChange={handleChange}
