@@ -21,13 +21,12 @@ export default function FloatingActionButtonZoom() {
     enter: theme.transitions.duration.enteringScreen,
     exit: theme.transitions.duration.leavingScreen
   };
-
   return (
-    <div >
+    <div>
       <Zoom
         key="primary"
         in={true}
-        timeout={transitionDuration}
+      timeout={transitionDuration} 
         style={{
           transitionDelay: `${transitionDuration.exit}ms`
         }}
