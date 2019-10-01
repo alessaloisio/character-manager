@@ -5,7 +5,6 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
-  DialogContentText,
   DialogActions,
   Button,
   CardMedia
@@ -15,6 +14,8 @@ import {
 import ICharactere from "../../interfaces/ICharactere";
 import cardImage from "../../function/cardImage";
 import deleteOneCharactere from "../../function/deleteOneCharactere";
+import ReactMarkdown from "react-markdown";
+
 import "./ViewModal.css";
 
 // data: ICharactere
@@ -39,9 +40,7 @@ const ViewModal = (props: { open: boolean; data: ICharactere; close: any }) => {
         {charactere.name || "undefined"}
       </DialogTitle>
       <DialogContent>
-        <DialogContentText>
-          {charactere.description || "undefined"}
-        </DialogContentText>
+        {<ReactMarkdown source={charactere.description} /> || "undefined"}
       </DialogContent>
       <DialogActions>
         <Button color="primary">Edit</Button>
