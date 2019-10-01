@@ -1,16 +1,29 @@
 import React from "react";
 
 // MATERIAL-UI
-import { Dialog, CardMedia } from "@material-ui/core";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogContentText,
+  DialogActions,
+  Button,
+  CardMedia
+} from "@material-ui/core";
 
 // ADDONS
 import ICharactere from "../../interfaces/ICharactere";
 import cardImage from "../../function/cardImage";
+import deleteOneCharactere from "../../function/deleteOneCharactere";
 import "./ViewModal.css";
 
 // data: ICharactere
 const ViewModal = (props: { open: boolean; data: ICharactere; close: any }) => {
   const charactere = props.data;
+
+  const handleDelete = async () => {
+    console.log("request delete");
+  };
 
   const dialog = () => (
     <Dialog className="dialogView" open={props.open} onClose={props.close}>
@@ -20,7 +33,16 @@ const ViewModal = (props: { open: boolean; data: ICharactere; close: any }) => {
         src="img"
         title={charactere.name}
       />
-      <h1>{charactere.name}</h1>
+      <DialogTitle id="form-dialog-title">{charactere.name}</DialogTitle>
+      <DialogContent>
+        <DialogContentText>{charactere.description}</DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button color="primary">Edit</Button>
+        <Button color="secondary" onClick={handleDelete}>
+          Delete
+        </Button>
+      </DialogActions>
     </Dialog>
   );
 

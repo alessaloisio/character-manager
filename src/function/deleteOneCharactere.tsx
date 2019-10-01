@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const getOneCharactere = async (id: string) => {
+const deleteOneCharactere = async (id: string) => {
   try {
-    const res = await axios.get(
+    const res = await axios.delete(
       `https://character-database.becode.xyz/characters/${id}`
     );
 
@@ -12,4 +12,4 @@ const getOneCharactere = async (id: string) => {
   }
 };
 
-export default getOneCharactere;
+export default deleteOneCharactere;
