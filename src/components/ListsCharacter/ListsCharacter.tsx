@@ -25,7 +25,8 @@ import getOneCharactere from "../../function/getOneCharactere";
 import "./ListsCharacter.css";
 
 const ListsCharacter = () => {
-  const [Characteres, setCharacteres] = useState([]);
+  const [characteres, setCharacteres] = useState([]);
+  const [charactere, setCharactere] = useState();
 
   // VIEW
   const [viewModal, setViewModal] = useState(false);
@@ -40,10 +41,10 @@ const ListsCharacter = () => {
   });
 
   // View MODAL
-  const handleViewOpen = (id: string) => {
+  const handleViewOpen = async (id: string) => {
     // REQUEST
-    // getOneCharactere
-    console.log(id);
+    setCharactere(await getOneCharactere(id));
+    // SHOW MODAL
     setViewModal(true);
   };
 
@@ -56,7 +57,7 @@ const ListsCharacter = () => {
   return (
     <Container className="listsCharacter" maxWidth="md">
       <Grid container spacing={4}>
-        {Characteres.map((charactere: ICharactere) => (
+        {characteres.map((charactere: ICharactere) => (
           <Grid item key={charactere.id} xs={12} sm={6} md={4}>
             <Card>
               <CardMedia
@@ -87,7 +88,7 @@ const ListsCharacter = () => {
         ))}
       </Grid>
 
-      <ViewModal open={viewModal}></ViewModal>
+      <ViewModal open={viewModal} data={charactere}></ViewModal>
 
       <FloatButton />
     </Container>
