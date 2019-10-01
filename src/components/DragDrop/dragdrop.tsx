@@ -1,21 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import { DropzoneArea } from "material-ui-dropzone";
 
-class DropzoneAreaExample extends Component {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      files: []
-    };
-  }
-  handleChange(files: any) {
-    this.setState({
-      files: files
-    });
-  }
-  render() {
-    return <DropzoneArea onChange={this.handleChange.bind(this)} />;
-  }
-}
+const DropzoneAreaExample = (props: { onchange: any }) => {
+  return (
+    <DropzoneArea
+      filesLimit={1}
+      dropzoneText="Drag and drop une image ou cliquer"
+      showPreviews={true}
+      acceptedFiles={["image/jpeg", "image/png", "image/bmp"]}
+      showPreviewsInDropzone={false}
+      onChange={props.onchange}
+    ></DropzoneArea>
+  );
+};
 
 export default DropzoneAreaExample;
