@@ -88,6 +88,7 @@ const ListsCharacter = () => {
         open={viewModal}
         close={handleViewClose}
         data={charactere}
+        update={setCharactere}
       ></ViewModal>
     </Container>
   );

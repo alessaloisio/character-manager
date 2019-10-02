@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // MATERIAL-UI
 import {
@@ -10,45 +10,74 @@ import {
   CardMedia
 } from "@material-ui/core";
 
+// COMPONENTS
+import ReactMarkdown from "react-markdown";
+import EditModal from "../ModalEdit/EditModal";
+
 // ADDONS
 import ICharactere from "../../interfaces/ICharactere";
 import cardImage from "../../function/cardImage";
 import deleteOneCharactere from "../../function/deleteOneCharactere";
-import ReactMarkdown from "react-markdown";
 
 import "./ViewModal.css";
 
-// data: ICharactere
-const ViewModal = (props: { open: boolean; data: ICharactere; close: any }) => {
+const ViewModal = (props: {
+  open: boolean;
+  close: any;
+  data: ICharactere;
+  update: any;
+}) => {
   const charactere = props.data;
 
-  const handleDelete = async () => {
+  // EDIT
+  const [editModal, setEditModal] = useState(false);
+
+  const handleBtnDelete = async () => {
     await deleteOneCharactere(charactere.id!);
-    // CLOSE the modal
-    props.close();
+    props.close(); // CLOSE the modal
+  };
+
+  const handleBtnEdit = () => {
+    setEditModal(true);
+  };
+
+  const handleEditClose = () => {
+    // CLOSE MODAL
+    setEditModal(false);
   };
 
   const dialog = () => (
-    <Dialog className="dialogView" open={props.open} onClose={props.close}>
-      <CardMedia
-        className="cardMedia"
-        image={cardImage(charactere.image)}
-        src="img"
-        title={charactere.name}
+    <React.Fragment>
+      <Dialog className="dialogView" open={props.open} onClose={props.close}>
+        <CardMedia
+          className="cardMedia"
+          image={cardImage(charactere.image)}
+          src="img"
+          title={charactere.name}
+        />
+        <DialogTitle id="form-dialog-title">
+          {charactere.name || "undefined"}
+        </DialogTitle>
+        <DialogContent>
+          {<ReactMarkdown source={charactere.description} /> || "undefined"}
+        </DialogContent>
+        <DialogActions>
+          <Button color="primary" onClick={handleBtnEdit}>
+            Edit
+          </Button>
+          <Button color="secondary" onClick={handleBtnDelete}>
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <EditModal
+        open={editModal}
+        close={handleEditClose}
+        data={props.data}
+        updateData={props.update}
       />
-      <DialogTitle id="form-dialog-title">
-        {charactere.name || "undefined"}
-      </DialogTitle>
-      <DialogContent>
-        {<ReactMarkdown source={charactere.description} /> || "undefined"}
-      </DialogContent>
-      <DialogActions>
-        <Button color="primary">Edit</Button>
-        <Button color="secondary" onClick={handleDelete}>
-          Delete
-        </Button>
-      </DialogActions>
-    </Dialog>
+    </React.Fragment>
   );
 
   if (props.open) return dialog();

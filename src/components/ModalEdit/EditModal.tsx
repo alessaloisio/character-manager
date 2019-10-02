@@ -10,13 +10,26 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 
 // COMPONENTS
 import FileUpload from "../FileUpload/FileUpload";
-import postCharactere from "../../function/postCharactere";
 
-const AppModal = (props: { open: boolean; close: any }) => {
-  const [inputName, setInputName] = useState("");
-  const [inputShortDescription, setInputShortDescription] = useState("");
-  const [inputDescription, setInputDescription] = useState("");
-  const [inputImage, setInputImage] = useState("");
+// ADDONS
+import ICharactere from "../../interfaces/ICharactere";
+import putCharactere from "../../function/putCharactere";
+import getOneCharactere from "../../function/getOneCharactere";
+
+const EditModal = (props: {
+  open: boolean;
+  close: any;
+  data: ICharactere;
+  updateData: any;
+}) => {
+  const [inputName, setInputName] = useState(props.data.name);
+  const [inputShortDescription, setInputShortDescription] = useState(
+    props.data.shortDescription
+  );
+  const [inputDescription, setInputDescription] = useState(
+    props.data.description
+  );
+  const [inputImage, setInputImage] = useState(props.data.image);
 
   const handleChange = (e: any) => {
     switch (e.target.getAttribute("id")) {
@@ -33,21 +46,20 @@ const AppModal = (props: { open: boolean; close: any }) => {
   };
 
   const submit = async () => {
-    await postCharactere({
-      name: inputName,
-      shortDescription: inputShortDescription,
-      description: inputDescription,
-      image: inputImage
-    });
+    if (typeof props.data.id !== "undefined") {
+      await putCharactere(props.data.id, {
+        name: inputName,
+        shortDescription: inputShortDescription,
+        description: inputDescription,
+        image: inputImage
+      });
 
-    // RESET ALL INPUT
-    setInputName("");
-    setInputShortDescription("");
-    setInputDescription("");
-    setInputImage("");
+      // UPDATE DATA
+      props.updateData(await getOneCharactere(props.data.id));
 
-    // CLOSE MODAL
-    props.close();
+      // CLOSE MODAL
+      props.close();
+    }
   };
 
   return (
@@ -56,7 +68,7 @@ const AppModal = (props: { open: boolean; close: any }) => {
       onClose={props.close}
       aria-labelledby="form-dialog-title"
     >
-      <DialogTitle id="form-dialog-title">Ajouter votre héro</DialogTitle>
+      <DialogTitle id="form-dialog-title">Éditer votre héro</DialogTitle>
       <DialogContent>
         <FileUpload onchange={setInputImage} />
         <TextField
@@ -92,11 +104,11 @@ const AppModal = (props: { open: boolean; close: any }) => {
           Cancel
         </Button>
         <Button onClick={submit} color="primary">
-          Submit
+          Update
         </Button>
       </DialogActions>
     </Dialog>
   );
 };
 
-export default AppModal;
+export default EditModal;
