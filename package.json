@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "author": "Alessandro,Dylan",
   "private": true,
+  "homepage": "https://alessaloisio.github.io/character-manager/",
   "dependencies": {
     "@material-ui/core": "^4.4.3",
     "@material-ui/icons": "^4.4.3",
@@ -11,6 +12,7 @@
     "@types/react": "16.9.3",
     "@types/react-dom": "16.9.1",
     "axios": "^0.19.0",
+    "gh-pages": "^2.1.1",
     "material-ui-dropzone": "^2.4.1",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
@@ -21,6 +23,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

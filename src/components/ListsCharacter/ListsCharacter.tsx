@@ -67,7 +67,9 @@ const ListsCharacter = () => {
                 <Typography gutterBottom variant="h5" component="h2">
                   {charactere.name}
                 </Typography>
-                <Typography>{charactere.shortDescription}</Typography>
+                <Typography component="p">
+                  {charactere.shortDescription}
+                </Typography>
               </CardContent>
               <CardActions>
                 <Button
