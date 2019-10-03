@@ -1,48 +1,30 @@
-## API ENDPOINT
-[API](https://character-database.becode.xyz/)
+## Projet de Groupe
+
+-   GitHub Page : [CharacterManager](https://alessaloisio.github.io/character-manager/ "page GitHub de Characters Manager")
+-   Date début projet :  01-10-2019
+-   Date fin projet : 03-10-2019
+-   Compo : [Dylan](https://github.com/EVELETTE "profil GitHub de Dylan"), [Alessandro](https://github.com/alessaloisio "profil GitHub d'Alessandro")
+
+## Objectif
+
+Réaliser un dashboard permettant de gérer les personnages d'une base de donnée à l'aide de cette [API](https://character-database.becode.xyz/ "URL de l'API") :
+
+-   1 page d'accueil représantant la liste des personnages
+-   1 page permettant de voir un personnage en particulier
+-   1 formulaire pour pouvoir ajouter un nouveau personnage
+-   1 formulaire pour éditer un personnage déjà existant
+-   permettre la suppression d'un personnage
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Méthodes, outils et ressources utilisés
 
-## Available Scripts
+-   HTML 5, CSS 3
+-   REACT.JS avec TYPESCRIPT
+-   Git et GitHub
+-   Material-UI
 
-In the project directory, you can run:
+## Difficultés rencontrées
 
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+-   gestion du composant react "drop zone" permettant de télécharger des fichiers, pas beaucoup de documentation permettant de déterminer comment transformer le fichier en dataURI
+-   difficulté d'attribution des tâches pour un petit projet
+-   trouver les types (TypeScript) à rajouter pour certains composant React
